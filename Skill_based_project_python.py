@@ -19,11 +19,9 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 
-################################### Loading dataset ##########################################
 
 data = pd.read_csv("D:\LPU Sem 2\Python for Data Science\python_project\kidney_disease.csv")
 
-################################### Data Cleaning ############################################
 
 #Renaming columns
 data.rename(columns={
@@ -84,7 +82,7 @@ for i in float_type_columns:
 for i in X.columns:
     print("NULL values in ",i," is ", data[i].isnull().sum()," and its type is ",data[i].dtype)
     
-######################################### EDA #################################################################################
+#EDA
 
 # Univariate analysis - Histograms
 data.hist(bins=15, figsize=(15, 10), color='skyblue', edgecolor='black')
@@ -128,8 +126,7 @@ sns.heatmap(corr, annot=True, fmt=".2f", cmap='coolwarm', square=True)
 plt.title("Correlation Heatmap of Numeric Features")
 plt.show()
 
-
-######################################### ANALYSIS #############################################################################
+# ANALYSIS 
 #1)Hemoglobin Analysis 
 
 sns.boxplot(data=data, x='classification', y='hemoglobin')
@@ -210,7 +207,7 @@ plt.show()
 
 #These features relate to urinary tract infections, which can complicate CKD.
     
- ###################################LOGISTIC REGRESSION##########################################
+#LOGISTIC REGRESSION
 
 # Strip whitespace from column names and values
 data.columns = data.columns.str.strip()
@@ -270,7 +267,7 @@ plt.ylabel('Actual')
 plt.title('Confusion Matrix')
 plt.show()
 
-####################################SVM##################################################################
+#SVM
 
  
 #train the SVM classifier
@@ -288,7 +285,7 @@ plt.ylabel('Actual')
 plt.title('Confusion Matrix')
 plt.show()
     
-###############################KNN###################################################################
+#KNN
 
 #apply KNN
 knn = KNeighborsClassifier(n_neighbors = 22)
@@ -303,4 +300,5 @@ plt.xlabel('Predicted')
 plt.ylabel('Actual')
 plt.title('Confusion Matrix')
 plt.show() 
+
     
