@@ -1,59 +1,94 @@
-# python_project
-# 🧠 Kidney Disease Detection using Machine Learning
+# Kidney Disease Detection using Machine Learning
 
-This project involves analyzing clinical data and implementing supervised machine learning algorithms to accurately predict the presence of **Chronic Kidney Disease (CKD)**. It includes data preprocessing, exploratory data analysis (EDA), and building predictive models like Logistic Regression, Support Vector Machine (SVM), and K-Nearest Neighbors (KNN).
+## Overview
 
----
+Chronic Kidney Disease (CKD) is a progressive medical condition that can remain undiagnosed in early stages. This project builds a supervised machine learning pipeline to predict CKD using clinical patient data. The goal is to evaluate how effectively traditional machine learning algorithms can classify CKD risk from structured medical indicators.
 
-## 📁 Project Structure
----
-
-## 🎯 Objective
-
-- Clean and preprocess clinical kidney disease data
-- Perform exploratory data analysis and identify key indicators of CKD
-- Build predictive models for early diagnosis of CKD
-- Compare performance of Logistic Regression, SVM, and KNN classifiers
+The workflow includes data preprocessing, exploratory data analysis, feature preparation, model training, and comparative evaluation.
 
 ---
 
-## 📊 Dataset
+## Dataset
 
-- Source: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/chronic_kidney_disease)
-- Format: CSV
-- Features: 24 clinical and physiological parameters
-- Target: `classification` column (`ckd` or `notckd`)
+**Source:** UCI Machine Learning Repository – Chronic Kidney Disease Dataset  
 
----
+- **Records:** 400 patient samples  
+- **Features:** 24 clinical and physiological attributes  
+- **Target Variable:** `classification` (ckd / notckd)
 
-## 🔧 Tools & Libraries Used
+### Key Indicators
 
-- **Python**
-- `pandas`, `numpy` – Data manipulation
-- `matplotlib`, `seaborn` – Visualization
-- `scikit-learn` – Machine Learning models & preprocessing
+- Hemoglobin  
+- Serum Creatinine  
+- Blood Urea  
+- Packed Cell Volume  
+- Specific Gravity  
+- Infection indicators (Bacteria, Pus Cells)
 
----
-
-## 📈 Models & Results
-
-| Model               | Accuracy   |
-|--------------------|------------|
-| Logistic Regression | 98.86%     |
-| Support Vector Machine (SVM) | 98.86%     |
-| K-Nearest Neighbors (KNN - k=22) | 98.86%     |
-
-> All models performed remarkably well, highlighting the strength of clinical indicators in CKD prediction.
+The dataset contains both numerical and categorical variables with missing clinical values, requiring preprocessing before modeling.
 
 ---
 
-## 🔍 Exploratory Data Analysis (EDA)
+## Data Processing
 
-- **Visualizations** include histograms, boxplots, correlation heatmaps, and count plots.
-- Key medical features analyzed:
-  - **Hemoglobin**, **Serum Creatinine**, **Blood Urea**
-  - **Packed Cell Volume**, **Specific Gravity**
-  - **Appetite**, **Pus Cell Clumps**, **Bacteria**
+The following preprocessing steps were implemented:
+
+- Missing value handling using statistical imputation  
+- Encoding categorical clinical variables  
+- Feature scaling for model compatibility  
+- Data cleaning and validation  
+
+These steps ensure consistent feature representation for machine learning algorithms.
 
 ---
 
+## Exploratory Data Analysis
+
+EDA was performed to understand patterns in clinical indicators and CKD diagnosis.
+
+### Analysis Included
+
+- Distribution analysis using histograms  
+- Outlier detection using boxplots  
+- Feature relationships via correlation heatmaps  
+- Class distribution analysis  
+
+Clinical markers such as **serum creatinine, hemoglobin levels, and blood urea** showed strong correlation with CKD classification.
+
+---
+
+## Machine Learning Models
+
+Three supervised learning algorithms were trained and evaluated:
+
+- Logistic Regression  
+- Support Vector Machine (SVM)  
+- K-Nearest Neighbors (KNN)
+
+Models were trained on processed features and evaluated on a held-out test dataset.
+
+---
+
+## Model Performance
+
+| Model | Accuracy |
+|------|------|
+| Logistic Regression | 93.67% |
+| Support Vector Machine (SVM) | 98.86% |
+| K-Nearest Neighbors (KNN - k=22) | 96.00% |
+
+The models achieved high accuracy due to strong separability among key clinical indicators.
+
+---
+
+## Tech Stack
+
+### Programming
+- Python
+
+### Libraries
+- pandas  
+- numpy  
+- matplotlib  
+- seaborn  
+- scikit-learn
